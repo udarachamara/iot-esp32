@@ -1,0 +1,14 @@
+[19-Feb-2022 04:21:40 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/uchdevel/public_html/iot/database.php on line 3
+[19-Feb-2022 04:22:18 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/uchdevel/public_html/iot/database.php on line 3
+[19-Feb-2022 04:25:11 UTC] PHP Warning:  hash() expects at least 2 parameters, 1 given in /home/uchdevel/public_html/iot/index.php on line 6
+[19-Feb-2022 04:25:11 UTC] PHP Warning:  hash() expects at least 2 parameters, 1 given in /home/uchdevel/public_html/iot/index.php on line 6
+[19-Feb-2022 04:46:59 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function call() in /home/uchdevel/public_html/iot/index.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/uchdevel/public_html/iot/index.php on line 11
+[19-Feb-2022 05:01:29 UTC] PHP Fatal error:  Cannot use [] for reading in /home/uchdevel/public_html/iot/message.php on line 9
+[19-Feb-2022 08:10:13 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
+[19-Feb-2022 08:10:19 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
+[19-Feb-2022 08:10:25 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
+[19-Feb-2022 08:10:31 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
+[19-Feb-2022 08:10:37 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
