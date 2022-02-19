@@ -6,10 +6,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body style="background-color: rgb(1 2 10)">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6" style="height: 90vh;border: 2px solid rgba(119, 119, 119, 0.404);">
+                <div>
+                    <div class="py-2 ">
+                        <button class="btn btn-info m-2" onclick="loadChartFor('room', 'My Room')">My Room</button>
+                        <button class="btn btn-info m-2" onclick="loadChartFor('light', 'Light 1')">Light 1</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="height: 90vh;border: 2px solid rgba(119, 119, 119, 0.404);">
+                <div style="min-height: 300px;">
+                    <canvas id="myChart" width="500" height="200"></canvas>
+                </div>
+                <div class="row mt-2 p-2">
+                    <table class="table text-white">
+                        <tbody id="message_data">
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/chart.js/dist/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        var myChart = null;
+
+        function loadChartFor(topic, label) {
+            var apiData = [];
+            createChart(label, apiData);
+        }
+
+        function createChart(label, apiData) {
+
+            const config = {
+                type: "line",
+                data: {
+                    labels: [],
+                    datasets: [{
+                        data: [], // Set initially to empty data
+                        label: "Temperature",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            type: "time",
+                            distribution: "linear"
+                        }],
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            };
+
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, config);
+
+            const fetchCSV = () => fetch("temperature.csv")
+                .then(data => data.text())
+                .then(csv => {
+                    myChart.data.datasets[0].data = csvToChartData(csv);
+                    myChart.update();
+                    setTimeout(fetchCSV, 5000); // Repeat every 5 sec
+                });
+
+            const csvToChartData = csv => {
+                const lines = csv.trim().split("\n");
+                lines.shift(); // remove titles (first line)
+                return lines.map(line => {
+                    const [date, temperature] = line.split(",");
+                    return {
+                        x: date,
+                        y: temperature
+                    };
+                });
+            };
+
+            fetchCSV(); // First fetch!
+        }
+    </script>
 </body>
 
 </html>
