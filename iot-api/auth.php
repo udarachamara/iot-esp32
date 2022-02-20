@@ -27,8 +27,8 @@ if ($result->num_rows > 0) {
 
 }
 
-if (isset($reqestHeaders['api-key'])) {
-    if ($reqestHeaders['api-key'] != $apiKey) {
+if (isset($reqestHeaders['x-api-key'])) {
+    if ($reqestHeaders['x-api-key'] != $apiKey) {
       echo "code-403";
       exit;
     }

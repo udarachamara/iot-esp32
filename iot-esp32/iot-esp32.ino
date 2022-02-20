@@ -24,7 +24,7 @@ String curlRequest(String topic, String _method, String _data)
     HTTPClient http;
     String messageUrl = host + topic;
     http.begin(messageUrl);
-    http.addHeader("api-key", decrptKey);
+    http.addHeader("x-api-key", decrptKey);
     Serial.println("request send to ->" + messageUrl);
     int httpCode = 0;
     if (_method == "POST") {

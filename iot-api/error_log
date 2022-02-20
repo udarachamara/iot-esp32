@@ -12,3 +12,119 @@ Stack trace:
 [19-Feb-2022 08:10:25 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
 [19-Feb-2022 08:10:31 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
 [19-Feb-2022 08:10:37 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/uchdevel/public_html/iot/message.php on line 30
+[19-Feb-2022 09:08:40 UTC] PHP Fatal error:  Uncaught Error: Call to private method MessageCalling::updateMessageHistory() from context '' in /home/uchdevel/public_html/iot/message.php:15
+Stack trace:
+#0 /home/uchdevel/public_html/iot/index.php(18): messageQueue(Array, Object(mysqli))
+#1 /home/uchdevel/public_html/iot/index.php(12): message(Array, Object(mysqli))
+#2 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 15
+[19-Feb-2022 09:09:28 UTC] PHP Fatal error:  Uncaught Error: Call to private method MessageCalling::updateMessageHistory() from context '' in /home/uchdevel/public_html/iot/message.php:15
+Stack trace:
+#0 /home/uchdevel/public_html/iot/index.php(18): messageQueue(Array, Object(mysqli))
+#1 /home/uchdevel/public_html/iot/index.php(12): message(Array, Object(mysqli))
+#2 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 15
+[20-Feb-2022 03:13:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:13:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('POST', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'POST', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:14:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/uchdevel/public_html/iot/message.php:52
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('GET', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'GET', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 52
+[20-Feb-2022 03:15:12 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function MessageCalling::message(), 2 passed in /home/uchdevel/public_html/iot/message.php on line 27 and exactly 3 expected in /home/uchdevel/public_html/iot/message.php:50
+Stack trace:
+#0 /home/uchdevel/public_html/iot/message.php(27): MessageCalling->message('GET', Array)
+#1 /home/uchdevel/public_html/iot/message.php(18): MessageCalling->caller('message', Array, 'GET', Object(mysqli))
+#2 /home/uchdevel/public_html/iot/index.php(23): messageQueue(Array, Object(mysqli))
+#3 /home/uchdevel/public_html/iot/index.php(17): message(Array, Object(mysqli))
+#4 {main}
+  thrown in /home/uchdevel/public_html/iot/message.php on line 50

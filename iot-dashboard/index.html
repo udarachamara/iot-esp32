@@ -7,16 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body style="background-color: rgb(1 2 10)">
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-6" style="height: 90vh;border: 2px solid rgba(119, 119, 119, 0.404);">
-                <div>
-                    <div class="py-2 ">
-                        <button class="btn btn-info m-2" onclick="loadChartFor('room', 'My Room')">My Room</button>
-                        <button class="btn btn-info m-2" onclick="loadChartFor('light', 'Light 1')">Light 1</button>
+                <div class="row">
+                    <div class="py-2 col-md-12">
+                        <button class="btn btn-info m-2 btn-sm" onclick="loadChartFor('room', 'My Room')">My Room</button>
+                        <button class="btn btn-info m-2 btn-sm" onclick="loadChartFor('light', 'Light 1')">Light 1</button>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table text-white tbl-msg">
+                            <thead>
+                                <tr>
+                                    <td>Topic</td>
+                                    <td>Message</td>
+                                    <td>Time</td>
+                                    <td>Ip</td>
+                                </tr>
+                            </thead>
+                            <tbody id="message_data">
+                               
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -24,16 +40,9 @@
                 <div style="min-height: 300px;">
                     <canvas id="myChart" width="500" height="200"></canvas>
                 </div>
-                <div class="row mt-2 p-2">
-                    <table class="table text-white">
-                        <tbody id="message_data">
-                            <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="py-2 col-md-12">
+                    <button class="btn btn-info m-2 btn-sm">On</button>
+                    <button class="btn btn-info m-2 btn-sm">Off</button>
                 </div>
             </div>
         </div>
@@ -48,11 +57,38 @@
     <script>
         const ctx = document.getElementById('myChart');
         var myChart = null;
+        fetchTableData();
 
         function loadChartFor(topic, label) {
             var apiData = [];
             createChart(label, apiData);
         }
+        
+        function fetchTableData (){
+                 $.ajax({
+                url: 'https://iot.uchdevelopment.com/message/message',
+                type: 'post',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'x-api-key': '4a6add7ce3cde4a2b83821d4bf148dfb'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    $('#message_data').empty();
+                    const dataArr = response;
+                    dataArr.forEach(elem => {
+                        var row = '<tr> <td>'+ elem.topic +'</td> <td>'+ elem.message +'</td> <td>'+ elem.create_at +'</td> <td>'+ elem.client_ip +'</td> </tr>';
+                        $('#message_data').append(row);
+                    })
+                    
+                },
+                error: function(err) {
+                    $('#message_data').empty();
+                    console.log(err);
+                }
+            });
+            setTimeout(fetchTableData, 10000);
+            }
 
         function createChart(label, apiData) {
 
@@ -62,7 +98,7 @@
                     labels: [],
                     datasets: [{
                         data: [], // Set initially to empty data
-                        label: "Temperature",
+                        label: label,
                         borderColor: "#3e95cd",
                         fill: false
                     }]
@@ -84,28 +120,42 @@
                 myChart.destroy();
             }
             myChart = new Chart(ctx, config);
-
-            const fetchCSV = () => fetch("temperature.csv")
-                .then(data => data.text())
-                .then(csv => {
-                    myChart.data.datasets[0].data = csvToChartData(csv);
+            
+            const fetchApiData = () => {
+                $.ajax({
+                url: 'https://iot.uchdevelopment.com/message/room',
+                type: 'post',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'x-api-key': '4a6add7ce3cde4a2b83821d4bf148dfb'
+                },
+                data: "data=test",
+                crossDomain: true,
+                dataType: 'json',
+                success: function(response) {
+                    myChart.data.datasets[0].data = apiDataToChartData(response);
                     myChart.update();
-                    setTimeout(fetchCSV, 5000); // Repeat every 5 sec
-                });
+                    // setTimeout(fetchApiData, 10000);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
 
-            const csvToChartData = csv => {
-                const lines = csv.trim().split("\n");
-                lines.shift(); // remove titles (first line)
-                return lines.map(line => {
-                    const [date, temperature] = line.split(",");
+            }
+
+
+            const apiDataToChartData = data => {
+
+                return data.map(line => {
                     return {
-                        x: date,
-                        y: temperature
+                        x: line.date,
+                        y: line.temperature
                     };
                 });
             };
 
-            fetchCSV(); // First fetch!
+            fetchApiData(); // First fetch!
         }
     </script>
 </body>
